@@ -1,6 +1,6 @@
 package hw1;
 
-public class hw1 {
+public class Hw1 {
 	
 	public static void main(String[] args) {
 		
@@ -24,13 +24,31 @@ public class hw1 {
 		
 		System.out.println ( "第三題" ) ;
 		
-		final int s3 =256559;   
+		int s3 =256559;   
 		int mins = s3 / 60 , secs = s3 - ( mins * 60) , hrs = mins / 60 , days = hrs / 24 ;
 		
 		mins = mins - ( hrs *60 ) ;	
 		hrs = hrs - ( days * 24 ) ;
 			
 		System.out.println( s3 + " 秒為 " + days + " 天 " + hrs + " 小時 " + mins + " 分鐘 " + secs + " 秒 " ) ;
+
+		int t = 1;
+		int [] time = new int [ 5 ] ;
+		
+		time[ 0 ] = s3 ;
+		
+		do{	
+				if( t < 4 ) {
+					time[t]=s3 % 60 ;
+					s3 -= (s3 % 60 ) ;
+					s3 /=60 ;
+				}else {time[ t ] = s3 / 24 ;}
+				t++ ;
+		}while( t <= 4 ) ;
+		
+		System.out.println(  time[ 0 ] + " 秒為 " +  time[ --t ] + " 天 " +  time[-- t ] + " 小時 " +  time[-- t ] + " 分鐘 " +   time[ --t ] + " 秒 " ) ;
+//		while(t>=0) {
+		
 		
 //		4. 請定義一個常數為3.1415(圓周率),並計算半徑為5的圓面積與圓周長
 		
